@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+        <div class="container">
+            <h1 class="form-heading" >login Form</h1>
+            <div id="loginbox" style="margin-top: 50px;"
+                 class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Logar</div>
+                        <div
+                            style="float: right; font-size: 80%; position: relative; top: -10px">
+                            <a href="#">Esqueceu sua senha?</a>
+                        </div>
+                    </div>
+
+                    <div style="padding-top: 30px" class="panel-body">
+
+                        <div style="display: none" id="login-alert"
+                             class="alert alert-danger col-sm-12"></div>
+
+                        <h:form id="loginform" styleClass="form-horizontal">
+                            <h:panelGrid columns="2" rendered="#{empty usuarioController.profile}">
+
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i
+                                            class="glyphicon glyphicon-user"></i></span> <input
+                                        id="login-username" type="text" class="form-control"
+                                        name="username" value="" placeholder="username or email" />
+                                </div>
+
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i
+                                            class="glyphicon glyphicon-lock"></i></span> <input
+                                        id="login-password" type="password" class="form-control"
+                                        name="password" placeholder="password" />
+                                </div>
+
+
+
+                                <div class="input-group">
+                                    <div class="checkbox">
+                                        <label> <input id="login-remember" type="checkbox"
+                                                       name="remember" value="1" /> Lembrar-me
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                                <div style="margin-top: 10px" class="form-group">
+                                    <h:commandLink />
+                                    <a id="btn-login" href="#" class="btn btn-success"
+                                       style="margin-right: 10px;">Login </a>
+                                    <h:commandLink action="#{usuarioController.conectar()}"
+                                                   styleClass="btn btn-primary" value="Login com Facebook"
+                                                   rendered="#{empty usuarioController.profile}" />			
+
+                                    <h:commandLink />
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div
+                                            style="padding-top: 15px; font-size: 85%">
+                                            Não é cadastrado ? <a href="#"
+                                                                  onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                                Cadastra-se Aqui ! </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" cellspacing="10" cellpadding="20"
+                                         rendered="#{not empty usuarioController.profile}">
+                                <h:graphicImage value="#{usuarioController.profile.profileImageURL}"
+                                                styleClass="media-object" />
+
+                                <h3 class="media-heading" style="margin-left: 10px;">#{usuarioController.profile.fullName}</h3>
+                                <h:commandLink action="#{usuarioController.salir()}"
+                                                   styleClass="btn btn-primary" value="Salir"
+                                                    />			
+
+                                    <h:commandLink />
+                            </h:panelGrid>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        otro
+        
+        
+        
+        <div class="container">
+            <div class="row">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
+
+                <div id="loginform">
+                    <div id="facebook">
+                        <i class="fa fa-facebook"></i>
+                        <div id="connect">Inicia sesion con Facebook</div>
+                            
+                    </div>
+                    <div id="mainlogin">
+                        <div id="or">or</div>
+                        <h1 class="">Inicia sesion</h1>
+                        <h:form id="log" styleClass="form-horizontal">
+                            <h:panelGrid columns="1" rendered="#{empty usuarioController.profile}">
+
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                    </span> 
+                                    <input id="login-username" type="text" class="form-control"
+                                           name="username" value="" placeholder="usuario o correo" />
+                                </div>
+
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-lock"></i>
+                                    </span> 
+                                    <input id="login-password" type="password" class="form-control"
+                                           name="password" placeholder="contraseña" />
+                                </div>
+
+                                <div class="checkbox">
+                                    <label> <input id="login-remember" type="checkbox"
+                                                   name="remember" value="1" /> Recuerdame
+                                    </label>
+                                </div>
+
+
+                                <div style="margin-top: 10px" class="form-group">
+                                    <h:commandLink type="submit">
+                                        <a id="btn-login" href="#" class="fa fa-arrow-right"
+                                           style="margin-right: 10px;">Login </a>
+                                    </h:commandLink>
+                                    <h:commandLink action="#{usuarioController.conectar()}"
+                                                   styleClass="btn btn-primary" value="Login com Facebook"
+                                                   rendered="#{empty usuarioController.profile}" >			
+
+                                    </h:commandLink >
+
+                                </div>
+
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" cellspacing="10" cellpadding="20"
+                                         rendered="#{not empty usuarioController.profile}">
+                                <h:graphicImage value="#{usuarioController.profile.profileImageURL}"
+                                                styleClass="media-object" />
+
+                                <h3 class="media-heading" style="margin-left: 10px;">#{usuarioController.profile.fullName}</h3>
+                                <h:commandLink action="#{usuarioController.salir()}"
+                                               styleClass="btn btn-primary" value="Salir"
+                                               />			
+
+                                <h:commandLink />
+                            </h:panelGrid>
+
+                        </h:form>
+
+                        <div id="note">Não é cadastrado ? <a href="#"
+                                                             onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                Cadastra-se Aqui ! </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </body>
+</html>
